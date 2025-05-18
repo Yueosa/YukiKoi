@@ -1,15 +1,36 @@
 <template>
-    <div class="p-6 text-center" style="padding-left: 100px; padding-top: 60px;">
-        <h1 class="text-3xl font-bold text-pink-500">这是我的第一个VUE页面</h1>
-        <p class="mt-4">欢迎来到我的世界，这里没有神，只有我构筑的代码、记忆和光。</p>
+    <div class="main-container">
+        <BackMain />
+        <h1 class="title">这是我的第一个VUE页面</h1>
+        <p class="subtitle">
+            欢迎来到我的世界，这里没有神，只有我构筑的代码、记忆和光。
+        </p>
         <ArtText text="YukiKoi" />
     </div>
 </template>
 
-<script setup>
+
+<script setup lang="ts">
     import ArtText from '~/components/ArtText.vue'
+    import BackMain from '~/components/BackMain.vue';
 </script>
 
+
 <style scoped>
-    /* 暂时不写样式 */
+    .main-container {
+        padding: 60px 0 0 100px;
+        text-align: center;
+        background-color: #fdf6f9;
+    }
+
+    .title {
+        font-size: 1.875rem;
+        font-weight: bold;
+        color: #ec4899;
+    }
+
+    .subtitle {
+        margin-top: 1rem;
+        color: #555;
+    }
 </style>

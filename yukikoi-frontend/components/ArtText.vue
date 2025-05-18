@@ -4,6 +4,7 @@
     </div>
 </template>
 
+
 <script setup>
 defineProps({
     text: {
@@ -12,6 +13,7 @@ defineProps({
     }
 })
 </script>
+
 
 <style scoped>
 .art-text {
@@ -22,7 +24,7 @@ defineProps({
 
     font-weight: bold;
     font-size: 36px;
-    color: #ff69b4; /* HotPink 粉色 */
+    color: #ff69b4;
 
     font-family: "Comic Sans MS", "Segoe Print", cursive, sans-serif;
 
