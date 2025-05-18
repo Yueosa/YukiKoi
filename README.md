@@ -1,5 +1,5 @@
 # YukiKoi
-ユメアカリ
+#### ユメアカリ
 
 ###### 欢迎来到我的世界，这里没有神，只有我构建的代码、记忆和光
 ###### ——Sakura
@@ -21,44 +21,4 @@
 | `.output` | 编译产物输出（仅开发模式下出现） |
 
 ---
-
-## 所有配置步骤：
-
-sudo pacman -S pyenv
-
-export PYENV_ROOT="$HOME/.pyenv"
-
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-eval "$(pyenv init -)"
-
-proxychains pyenv install 3.10.13
-
-proxychains pyenv global 3.10.13
-
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc 
-
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc 
-
-source ~/.zshrc 
-
-proxychains curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
-
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
-
-echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.zshrc
-
-source ~/.zshrc
-
-nvm install 20
-
-nvm use 20
-
-npm install -g pnpm
-
-proxychains pnpm create nuxt@latest yukikoi-frontend
 
