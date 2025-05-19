@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
     </Head>
 
+    <YukiLogo />
+
     <div class="main">
         <!-- 头像组 -->
         <div class="top">
@@ -46,6 +48,12 @@
                     <i class="ri-mail-fill"></i>
                 </div>
                 <span>Gmail</span>
+            </a>
+            <a class="button" href="/test">
+                <div class="icon">
+                    <i class="ri-home-line"></i>
+                </div>
+                <span>Home</span>
             </a>
         </div>
     </div>
@@ -91,26 +99,27 @@ $gmail-color: #D93025;
 
 .top {
     display: flex;
+    padding: 20px;
     align-items: center;
     gap: 20px;
 
     .avatar {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
         border: 2px solid #aaa;
         object-fit: cover;
     }
 
     .info {
-        background: #c0d9f5;
-        padding: 20px 30px;
-        border-radius: 20px;
+        padding: 10px 30px;
         color: #000;
         font-weight: bold;
 
         p {
             text-align: right;
+            line-height: 200%;
+            font-size: 20px;
         }
 
     }
@@ -201,6 +210,10 @@ $gmail-color: #D93025;
             background: $gmail-color;
         }
 
+        &:nth-child(6):hover .icon {
+            background: $qq-color;
+        }
+
         &:nth-child(1):hover span {
             color: $qq-color;
         }
@@ -220,6 +233,10 @@ $gmail-color: #D93025;
         &:nth-child(5):hover span {
             color: $gmail-color;
         }
+
+        &:nth-child(6):hover span {
+            color: $qq-color;
+        }
     }
 }
 </style>
@@ -227,4 +244,5 @@ $gmail-color: #D93025;
 
 <script setup>
 import { Head } from '#components'
+import YukiLogo from '~/components/YukiLogo.vue';
 </script>
