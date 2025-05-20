@@ -7,7 +7,7 @@
 
     <div class="flex h-screen">
         <div class="linebest">
-            <a class="button" href="http://localhost:3001/" @click="currentImage = null">
+            <a class="button" href="/" @click="currentImage = null">
                 <div class="icon">
                     <i class="ri-home-line"></i>
                 </div>
