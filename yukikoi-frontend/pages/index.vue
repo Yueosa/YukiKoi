@@ -176,7 +176,7 @@ body {
         background: linear-gradient(to right, #ff6b6b, #ff4c4c);
         box-shadow: 0 0 6px rgba(255, 50, 50, 0.6);
         filter: blur(0.5px);
-        animation: redLineIn 1s ease-out 4.8s forwards; // [4500ms-5700ms] 从左滑入，稍快停留在中间30%
+        animation: redLineIn 1s ease-out 4.5s forwards; // [4500ms-5700ms] 从左滑入，稍快停留在中间30%
     }
 
     @keyframes redLineIn {
