@@ -1,6 +1,7 @@
 <template>
     <div class="art-text">
         <i class="ri-poker-hearts-line"></i>
+        <i class="ri-home-line"></i>
         {{ text }}
     </div>
 </template>
@@ -25,18 +26,16 @@ defineProps({
 
     font-weight: 900;
     font-size: 42px;
-    color: #0077ff3a;
-
-    //font-family: 'Font Awesome 5 Brands';
-    //font-family: "Zen Maru Gothic";
-    //font-family: "M PLUS Rounded 1c";
-    //font-family: "Sawarabi Gothic";
     font-family: "Noto Sans JP";
     letter-spacing: 2px;
 
-    text-shadow: 1px 1px 1px rgb(175, 233, 218);
-
+    // 提高对比度的渐变：深蓝紫 -> 柔金
+    background-image: linear-gradient(135deg, #3e4f7f, #5a9bc6 30%, #f3b969 90%);
     background-clip: text;
-    background-image: linear-gradient(315deg, #23c4b6 0%, #1276b9 90%);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    // 柔和阴影，增加可读性但不刺眼
+    text-shadow: 1px 1px 4px rgba(80, 100, 140, 0.2);
 }
 </style>

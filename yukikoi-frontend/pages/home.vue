@@ -130,70 +130,6 @@ body {
         text-align: center;
     }
 }
-
-/* 通用初始状态 */
-.image-anim {
-    position: absolute;
-    transition: all 0.6s ease;
-    opacity: 0;
-}
-
-/* 入场动画集 */
-.fade-in {
-    opacity: 1;
-}
-
-.zoom-in {
-    transform: scale(1.0);
-    opacity: 1;
-}
-
-.slide-left {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.slide-up {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.rotate-in {
-    transform: rotate(0deg);
-    opacity: 1;
-}
-
-/* 初始状态样式（准备入场） */
-.zoom-in {
-    transform: scale(0.5);
-}
-
-.slide-left {
-    transform: translateX(-100%);
-}
-
-.slide-up {
-    transform: translateY(100%);
-}
-
-.rotate-in {
-    transform: rotate(180deg);
-}
-
-/* 离场动画 - 可以自己加更多 */
-.fade-out {
-    opacity: 0;
-}
-
-.zoom-out {
-    transform: scale(1.3);
-    opacity: 0;
-}
-
-.slide-right {
-    transform: translateX(100%);
-    opacity: 0;
-}
 </style>
 
 
@@ -205,6 +141,6 @@ const currentImage = ref(null)
 
 // 设置图片路径（修复了变量拼接）
 const showImage = (imgName) => {
-    currentImage.value = `/test-image/${imgName}.jpg`
+    currentImage.value = `/test-image/${imgName}.webp`
 }
 </script>
