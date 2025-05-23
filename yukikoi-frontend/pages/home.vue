@@ -13,6 +13,12 @@
                 </div>
                 <span>HOME</span>
             </a>
+            <a class="button" @click="toggleImageSource">
+                <div class="icon">
+                    <i :class="useLocalImages ? 'ri-hard-drive-line' : 'ri-cloud-line'"></i>
+                </div>
+                <span>{{ useLocalImages ? '本地模式' : '在线模式' }}</span>
+            </a>
             <a class="button" v-for="i in 9" :key="i" @click="showImage(`IMAGE${i}`)">
                 <div class="icon">
                     <i class="ri-image-circle-line"></i>
@@ -136,11 +142,38 @@ body {
 <script setup>
 import { ref } from 'vue'
 
+// 外部图床URL
+const imageUrls = {
+    IMAGE1: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE1.webp?sign=sIiPcywzss0uV7aVNN2Vw6W2C4AujDPohm9UBF2NHcI=:0',
+    IMAGE2: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE2.webp?sign=PB9vmY79T4noYl51v1l03_ibl5ysdxVETIQwLKXsxx0=:0',
+    IMAGE3: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE3.webp?sign=9tHH8TxaxJDUYG47Cq0PU6MRqV5nH9qy5OLkbm64ymU=:0',
+    IMAGE4: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE4.webp?sign=-wvLIZroHL9UI4K0QEfvY6seFWC8ObfqXlaQwrvv9Ws=:0',
+    IMAGE5: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE5.webp?sign=O6rUVjL9MLLb4fvEx-0uVY6Ib7SQ2VJUacGAg5q6pgM=:0',
+    IMAGE6: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE6.webp?sign=AfjzXoD5eGg7FLlvHo4n9flZjXFx9_g2Nw3kdn2JJbU=:0',
+    IMAGE7: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE7.webp?sign=4VhSr2ht0YBoJzq1Jv15NsfVS4n8wQHACsA2FmOTIw4=:0',
+    IMAGE8: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE8.webp?sign=VNEMST-dM9KiiiHeetef70j_rt_iqL-vLfsk-e5fWfM=:0',
+    IMAGE9: 'https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_images/IMAGE9.webp?sign=YsvnZwCxkUFtc2BpJD_n31iJqw3TYppZitnsUpdazrk=:0'
+}
+
 // 当前显示的图片
 const currentImage = ref(null)
+// 是否使用本地图片
+const useLocalImages = ref(false)
 
 // 设置图片路径（修复了变量拼接）
 const showImage = (imgName) => {
-    currentImage.value = `/test-image/${imgName}.webp`
+    if (useLocalImages.value) {
+        currentImage.value = `/test-image/${imgName}.webp`
+    } else {
+        currentImage.value = imageUrls[imgName] || null
+    }
 }
+
+// 切换本地/外链图片样式
+const toggleImageSource = () => {
+    useLocalImages.value = !useLocalImages.value
+    // 切换是清空当前显示
+    currentImage.value = null
+}
+
 </script>
