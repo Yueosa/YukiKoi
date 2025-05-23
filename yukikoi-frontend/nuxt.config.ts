@@ -4,4 +4,10 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
 
     modules: ["@nuxt/content", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxt/scripts", "@nuxt/ui"],
+
+    nitro: {
+        prerender: {
+	    ignore: ['/streamlit', '/Everwhispers']
+	}
+    }
 });
