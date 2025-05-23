@@ -15,6 +15,7 @@
         <!-- 所有UI组件 -->
         <div class="main">
             <YukiLogo />
+            <RightTop />
             <TopProfile />
             <SocialButtons />
         </div>
@@ -61,5 +62,6 @@ import { Head } from '#components'
 import YukiLogo from '~/components/YukiLogo.vue';
 import TopProfile from '~/components/index/TopProfile.vue';
 import SocialButtons from '~/components/index/SocialButtons.vue';
+import RightTop from '~/components/index/menu.vue'
 
 </script>
