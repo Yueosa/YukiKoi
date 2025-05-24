@@ -1,7 +1,7 @@
 <template>
     <div class="button-group">
-        <a class="button"
-            href="https://qm.qq.com/cgi-bin/qm/qr?k=542-vFFNEi71QkHcsy8JIhdixiqwavga&jump_from=webapi&authKey=igZGlTBrzwv+iNr8HkQei0OHZrQtHMw706mXCthQaSd0RsvAFkwNrYPFzgOh2nTU">
+        <a class="button" target="_blank"
+            href="https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ">
             <div class="icon"><i class="ri-qq-fill"></i></div>
             <span>QQGroup</span>
         </a>
