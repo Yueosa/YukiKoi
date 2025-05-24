@@ -1,9 +1,9 @@
 <template>
     <div class="floating-group">
-        <div class="group">
+        <div class="group" @click="toggleMenu" :class="{ 'active': isOpen }">
             <i class="ri-tent-line"></i>
         </div>
-        <div class="button-wrapper">
+        <div class="button-wrapper" :class="{ 'open': isOpen }">
             <a href="/streamlit" class="button" target="_blank" rel="noopener noreferrer">
                 <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/translate-ai-2.png?sign=hka6clVJ8DZ8XPjgM8M3R0s0G9BgCZRywijde-zUFW4=:0"
                     alt="">
@@ -20,6 +20,11 @@
     </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+const isOpen = ref(false)
+const toggleMenu = () => isOpen.value = !isOpen.value
+</script>
 
 <style scoped lang="scss">
 $color-main: #5a9bc6;
@@ -43,6 +48,10 @@ $color-border: rgba(90, 155, 198, 0.2);
         &:hover {
             opacity: 1;
         }
+
+        &.active {
+            animation: clickPulse 0.3s ease;
+        }
     }
 
     .button-wrapper {
@@ -55,12 +64,14 @@ $color-border: rgba(90, 155, 198, 0.2);
         opacity: 0;
         transform: translateY(-4px);
         transition: all 0.3s ease;
-    }
+        visibility: hidden;
 
-    &:hover .button-wrapper {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
+        &.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+            visibility: visible;
+        }
     }
 
     .button {
@@ -80,6 +91,20 @@ $color-border: rgba(90, 155, 198, 0.2);
         &:hover {
             background-color: rgba(255, 255, 255, 0.85);
         }
+    }
+}
+
+@keyframes clickPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 </style>
