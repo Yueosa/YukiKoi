@@ -27,8 +27,11 @@
             </a>
         </div>
         <div class="image-viewer">
-            <img class="preview-image" v-if="currentImage" :src="currentImage" alt="Selected">
-            <p v-else class="placeholder-text">请选择左边的图片~</p>
+            <Transition name="fade" mode="out-in">
+                <img class="preview-image" v-if="currentImage" :src="currentImage" :key="currentImage + Date.now()"
+                    alt="Selected">
+                <p v-else class="placeholder-text">请选择左边的图片~</p>
+            </Transition>
         </div>
     </div>
 </template>
@@ -136,6 +139,23 @@ body {
         text-align: center;
     }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+    transform: scale(1);
+}
 </style>
 
 
@@ -177,4 +197,3 @@ const toggleImageSource = () => {
 }
 
 </script>
-    
