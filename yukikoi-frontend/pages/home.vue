@@ -59,10 +59,13 @@ body {
 .linebest {
     position: fixed;
     left: 0;
-    bottom: 100px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 999;
 
     width: 50px;
+    max-height: 80vh;
+    overflow-y: auto;
     background-color: #1e1f2b;
     padding: 10px 0;
     border-radius: 0 10px 10px 0;
@@ -72,17 +75,37 @@ body {
     gap: 12px;
     transition: width 0.5s ease;
 
-    a.button {
-        text-decoration: none;
+    /* 自定义滚动条样式 */
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #1e1f2b;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #4a4b55;
+        border-radius: 2px;
     }
 
     &:hover {
         width: 140px;
 
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
         .button span {
             opacity: 1;
             transform: translateX(0);
+            visibility: visible;
+            /* 添加可见性控制 */
         }
+    }
+
+    a.button {
+        text-decoration: none;
     }
 
     .button {
@@ -107,11 +130,17 @@ body {
 
         span {
             opacity: 0;
+            visibility: hidden;
+            /* 添加可见性控制 */
             transform: translateX(-20px);
             transition: all 0.6s ease;
             white-space: nowrap;
             font-size: 16px;
             padding: 5px;
+            position: relative;
+            /* 确保定位正确 */
+            z-index: 1;
+            /* 提高层级 */
         }
     }
 

@@ -28,7 +28,7 @@ $color-border: rgba(90, 155, 198, 0.2);
 
 .floating-group {
     position: fixed;
-    top: 1rem;
+    top: 4vh;
     right: 1.2rem;
     z-index: 999;
 

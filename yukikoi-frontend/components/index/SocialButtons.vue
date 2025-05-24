@@ -41,6 +41,17 @@ $home-color: #5a9bc6;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 10px;
+
+    /* 移动端适配 */
+    @media screen and (max-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px;
+        width: 100%;
+        padding: 20px;
+    }
 
     a.button {
         text-decoration: none;

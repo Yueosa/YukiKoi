@@ -39,5 +39,26 @@
             font-size: 20px;
         }
     }
+
+    /* 移动端适配 */
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+        }
+
+        .info {
+            padding: 10px;
+            
+            p {
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+    }
 }
 </style>
