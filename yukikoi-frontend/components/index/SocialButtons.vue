@@ -2,31 +2,52 @@
     <div class="button-group">
         <a class="button" target="_blank"
             href="https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ">
-            <div class="icon"><i class="ri-qq-fill"></i></div>
+            <div class="icon">
+                <QQIcon />
+            </div>
             <span>QQGroup</span>
         </a>
         <a class="button" href="https://x.com/Yosa04942475621">
-            <div class="icon"><i class="ri-twitter-x-fill"></i></div>
+            <div class="icon">
+                <TwitterIcon />
+            </div>
             <span>Twitter</span>
         </a>
         <a class="button" href="https://space.bilibili.com/433677987">
-            <div class="icon"><i class="ri-bilibili-fill"></i></div>
+            <div class="icon">
+                <BiliBiliIcon />
+            </div>
             <span>BiliBili</span>
         </a>
         <a class="button" href="https://github.com/Yueosa">
-            <div class="icon"><i class="ri-github-fill"></i></div>
+            <div class="icon">
+                <GithubIcon />
+            </div>
             <span>GitHub</span>
         </a>
         <a class="button" href="mailto:yichengxin7@gmail.com">
-            <div class="icon"><i class="ri-mail-fill"></i></div>
+            <div class="icon">
+                <MailIcon />
+            </div>
             <span>Gmail</span>
         </a>
         <a class="button" href="/home">
-            <div class="icon"><i class="ri-home-line"></i></div>
+            <div class="icon">
+                <HomeIcon />
+            </div>
             <span>Home</span>
         </a>
     </div>
 </template>
+
+<script setup>
+import QQIcon from '@/assets/icons/qq-line.svg'
+import TwitterIcon from '@/assets/icons/twitter-line.svg'
+import BiliBiliIcon from '@/assets/icons/bilibili-line.svg'
+import GithubIcon from '@/assets/icons/github-line.svg'
+import MailIcon from '@/assets/icons/mail-line.svg'
+import HomeIcon from '@/assets/icons/home-line.svg'
+</script>
 
 <style lang="scss" scoped>
 $qq-color: #12B7F5;
@@ -73,8 +94,8 @@ $home-color: #5a9bc6;
             box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
             width: 200px;
 
-            .icon i {
-                color: #fff;
+            .icon svg {
+                fill: #fff;
             }
 
             span {
@@ -84,19 +105,21 @@ $home-color: #5a9bc6;
         }
 
         .icon {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             height: 60px;
             width: 60px;
-            text-align: center;
-            border-radius: 50px;
-            box-sizing: border-box;
-            line-height: 60px;
+            border-radius: 50%;
             transition: all 0.3s ease-out;
+            vertical-align: middle;
+            transform: translateX(-1px);
 
-            i {
-                font-size: 25px;
-                line-height: 60px;
+            svg {
+                width: 26px;
+                height: 26px;
                 transition: all 0.3s ease-out;
+                fill: #333;
             }
         }
 
@@ -110,6 +133,7 @@ $home-color: #5a9bc6;
             transition: all 0.5s ease;
             display: inline-block;
             white-space: nowrap;
+            vertical-align: middle;
         }
 
         &:nth-child(1):hover .icon {

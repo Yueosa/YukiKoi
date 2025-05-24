@@ -9,32 +9,41 @@
         <div class="linebest">
             <a class="button" href="/" @click="currentImage = null">
                 <div class="icon">
-                    <i class="ri-home-line"></i>
+                    <HomeIcon />
                 </div>
                 <span>HOME</span>
             </a>
+
+            <div class="divider">
+
+            </div>
+
             <a class="button" @click="toggleImageSource">
                 <div class="icon">
-                    <i :class="useLocalImages ? 'ri-hard-drive-line' : 'ri-cloud-line'"></i>
+                    <component :is="useLocalImages ? DriveIcon : CloudIcon" />
                 </div>
                 <span>{{ useLocalImages ? '本地模式' : '在线模式' }}</span>
             </a>
+
             <a class="button" v-for="i in 9" :key="i" @click="showImage(`IMAGE${i}`)">
                 <div class="icon">
-                    <i class="ri-image-circle-line"></i>
+                    <ImageIcon />
                 </div>
                 <span>{{ `IMAGE${i}` }}</span>
             </a>
         </div>
+
         <div class="image-viewer">
             <Transition name="fade" mode="out-in">
                 <img class="preview-image" v-if="currentImage" :src="currentImage" :key="currentImage + Date.now()"
-                    alt="Selected">
+                    alt="Selected" />
                 <p v-else class="placeholder-text">请选择左边的图片~</p>
             </Transition>
         </div>
     </div>
+
 </template>
+
 
 
 <style>
@@ -65,7 +74,8 @@ body {
 
     width: 50px;
     max-height: 80vh;
-    overflow-y: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
     background-color: #1e1f2b;
     padding: 10px 0;
     border-radius: 0 10px 10px 0;
@@ -75,18 +85,8 @@ body {
     gap: 12px;
     transition: width 0.5s ease;
 
-    /* 自定义滚动条样式 */
-    &::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: #1e1f2b;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #4a4b55;
-        border-radius: 2px;
+    ::-webkit-scrollbar {
+        display: none;
     }
 
     &:hover {
@@ -124,8 +124,11 @@ body {
             background-color: #2a2b3a
         }
 
-        .icon i {
-            font-size: 24px;
+        .icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #b0b0b0;
+            transition: fill 0.3s;
         }
 
         span {
@@ -150,7 +153,7 @@ body {
     position: absolute;
     top: 5%;
     bottom: 5%;
-    left: 10%;
+    left: 20%;
     right: 10%;
     display: flex;
     justify-content: center;
@@ -167,6 +170,15 @@ body {
         font-size: 40px;
         text-align: center;
     }
+}
+
+.divider {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #4a4b55, transparent);
+    margin: 6px 0;
+    opacity: 0.6;
+    border-radius: 1px;
 }
 
 .fade-enter-active,
@@ -189,6 +201,10 @@ body {
 
 
 <script setup>
+import HomeIcon from '@/assets/icons/home-line.svg'
+import ImageIcon from '@/assets/icons/image-circle-line.svg'
+import DriveIcon from '@/assets/icons/hard-drive-line.svg'
+import CloudIcon from '@/assets/icons/cloud-line.svg'
 import { ref } from 'vue'
 
 // 外部图床URL

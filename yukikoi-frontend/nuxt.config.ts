@@ -1,13 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import svgLoader from "vite-svg-loader";
+
 export default defineNuxtConfig({
     compatibilityDate: "2025-05-15",
     devtools: { enabled: true },
 
     modules: ["@nuxt/content", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxt/scripts", "@nuxt/ui"],
 
+    vite: {
+        plugins: [svgLoader()],
+    },
+
     nitro: {
         prerender: {
-	    ignore: ['/streamlit', '/Everwhispers']
-	}
-    }
+            ignore: ["/streamlit", "/Everwhispers"],
+        },
+    },
 });

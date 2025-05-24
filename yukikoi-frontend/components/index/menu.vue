@@ -1,7 +1,7 @@
 <template>
     <div class="floating-group">
         <div class="group" @click="toggleMenu" :class="{ 'active': isOpen }">
-            <i class="ri-tent-line"></i>
+            <MenuIcon />
         </div>
         <div class="button-wrapper" :class="{ 'open': isOpen }">
             <a href="/streamlit" class="button" target="_blank" rel="noopener noreferrer">
@@ -22,6 +22,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import MenuIcon from '@/assets/icons/tent-line.svg'
 const isOpen = ref(false)
 const toggleMenu = () => isOpen.value = !isOpen.value
 </script>
@@ -34,7 +35,7 @@ $color-border: rgba(90, 155, 198, 0.2);
 .floating-group {
     position: fixed;
     top: 4vh;
-    right: 1.2rem;
+    right: 4vh;
     z-index: 999;
 
     .group {
