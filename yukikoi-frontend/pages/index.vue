@@ -16,6 +16,7 @@
         <div class="main">
             <YukiLogo />
             <RightTop />
+            <MusicPlayer />
             <TopProfile />
             <SocialButtons />
         </div>
@@ -63,5 +64,6 @@ import YukiLogo from '~/components/YukiLogo.vue';
 import TopProfile from '~/components/index/TopProfile.vue';
 import SocialButtons from '~/components/index/SocialButtons.vue';
 import RightTop from '~/components/index/menu.vue'
+import MusicPlayer from '~/components/index/MusicPlayer.vue'
 
 </script>

@@ -34,8 +34,8 @@ $color-border: rgba(90, 155, 198, 0.2);
 
 .floating-group {
     position: fixed;
-    top: 4vh;
-    right: 4vh;
+    top: 3vh;
+    right: 3vh;
     z-index: 999;
 
     .group {
