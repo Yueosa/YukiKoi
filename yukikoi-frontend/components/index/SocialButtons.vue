@@ -120,6 +120,7 @@ $home-color: #5a9bc6;
                 height: 26px;
                 transition: all 0.3s ease-out;
                 fill: #333;
+                transform: translateX(1px);
             }
         }
 

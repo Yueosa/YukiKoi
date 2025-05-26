@@ -14,15 +14,17 @@
             </TransitionGroup>
         </div>
 
-        <!-- 音乐控制按钮: 点击切换播放状态，使用动态class控制样式 -->
+        <!-- 音乐控制按钮: 使用SVG图标 -->
         <div class="music-control" @click="toggleMusic">
-            <i :class="['ri-music-2-line', { 'active': isPlaying }]"></i>
+            <component :is="isPlaying ? Musicing : ReMusic" />
         </div>
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted, nextTick, computed } from 'vue'
+import Musicing from '@/assets/icons/disc-line.svg'
+import ReMusic from '@/assets/icons/memories-line.svg'
 
 // 组件状态管理
 const audioPlayer = ref(null)        // 音频播放器DOM引用
@@ -40,18 +42,47 @@ const currentLine = computed(() => {
 })
 
 /**
+ * 音量渐变控制
+ * @param {HTMLAudioElement} audio - 音频元素
+ * @param {number} targetVolume - 目标音量 0-1
+ * @param {number} duration - 渐变持续时间(ms)
+ */
+const fadeVolume = (audio, targetVolume, duration) => {
+    const steps = 20 // 渐变步数
+    const stepTime = duration / steps
+    const volumeStep = (targetVolume - audio.volume) / steps
+
+    let currentStep = 0
+    const fadeInterval = setInterval(() => {
+        currentStep++
+        audio.volume = audio.volume + volumeStep
+
+        if (currentStep >= steps) {
+            audio.volume = targetVolume // 确保最终音量准确
+            clearInterval(fadeInterval)
+        }
+    }, stepTime)
+}
+
+/**
  * 切换音乐播放状态
- * 点击时完全停止或从头开始播放
+ * 添加音量渐变效果
  */
 const toggleMusic = () => {
     isPlaying.value = !isPlaying.value
     if (isPlaying.value) {
-        // 重新播放时从头开始
+        // 从头开始播放，带渐入效果
         audioPlayer.value.currentTime = 0
+        audioPlayer.value.volume = 0
         audioPlayer.value.play()
+        fadeVolume(audioPlayer.value, 1, 1000) // 1秒渐入
     } else {
-        audioPlayer.value.pause()
-        currentLineIndex.value = -1  // 重置歌词位置
+        // 音量渐出后停止
+        fadeVolume(audioPlayer.value, 0, 800) // 0.8秒渐出
+        setTimeout(() => {
+            audioPlayer.value.pause()
+            currentLineIndex.value = -1
+        }, 800)
     }
     localStorage.setItem('musicPlaying', isPlaying.value.toString())
 }
@@ -168,7 +199,7 @@ onMounted(() => {
     position: fixed; // 固定定位，不随页面滚动
     left: 16px; // 左侧边距，与Logo对齐
     top: 80px; // 顶部边距，位于Logo下方
-    max-width: 90vw; // 最大宽度，防止超出屏幕
+    max-width: 95vw; // 最大宽度，防止超出屏幕
     height: 60vh; // 高度占视口60%
 
     /* 滚动相关 */
@@ -251,12 +282,26 @@ onMounted(() => {
         }
     }
 
+    /* SVG图标样式 */
+    svg {
+        width: 26px;
+        height: 26px;
+        fill: #5a9bc6;
+        transition: all 0.3s ease;
+    }
+
+    /* 悬停效果 */
+    &:hover svg {
+        transform: scale(1.1);
+        fill: #4a8ab6;
+    }
+
     /* 移动端适配 */
     @media screen and (max-width: 768px) {
-        width: 50px; // 增大点击区域
+        width: 30px; // 增大点击区域
         height: 50px; // 增大点击区域
         top: 2.5%; // 调整位置
-        right: 15%; // 调整位置
+        right: 20%; // 调整位置
         -webkit-tap-highlight-color: transparent; // 禁用点击高亮
 
         /* 扩大点击区域的透明覆盖层 */
@@ -273,6 +318,11 @@ onMounted(() => {
         /* 移动端图标大小调整 */
         i {
             font-size: 26px;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
         }
     }
 }
@@ -298,7 +348,7 @@ onMounted(() => {
 
     .lyric-transition-enter-from,
     .lyric-transition-leave-to {
-        transform: translateY(8px); // 减小移动距离
+        transform: translateY(4px); // 减小移动距离
     }
 }
 </style>

@@ -1,12 +1,10 @@
 <template>
 
     <Head>
-        <!-- RemixIcon CDN -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
     </Head>
 
-    <div>
-
+    <div class="page-container">
         <!-- 入场动画 -->
         <div>
             <!--正在施工-->
@@ -20,41 +18,46 @@
             <TopProfile />
             <SocialButtons />
         </div>
-
     </div>
-
 </template>
 
-
-<!-- 全局CSS样式 -->
-<style lang="scss">
-* {
+<style lang="scss" scoped>
+// 首先重置所有默认样式
+:global(html),
+:global(body) {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Font Awesome 5 Brands';
+    width: 100%;
+    height: 100%;
+    overflow: hidden; // 防止出现滚动条
 }
 
-html,
-body {
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    place-items: center;
+.page-container {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Font Awesome 5 Brands';
+    }
+
+    position: fixed; // 改为固定定位
+    top: 0;
+    left: 0;
+    width: 100%; // 使用百分比而不是 vw
+    height: 100%; // 使用百分比而不是 vh
     background: linear-gradient(315deg, #f6f6f6 0%, #d1cde3 80%);
-}
-</style>
+    overflow-x: hidden; // 防止水平滚动
 
-<!-- 添加布局样式 -->
-<style lang="scss" scoped>
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    width: 100vw;
-    height: 100vh;
+    .main {
+        position: relative; // 改为相对定位
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
 }
 </style>
 

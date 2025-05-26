@@ -5,66 +5,66 @@
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     </Head>
 
-    <div class="flex h-screen">
-        <div class="linebest">
-            <a class="button" href="/" @click="currentImage = null">
-                <div class="icon">
-                    <HomeIcon />
+    <div class="page-container">
+        <div class="flex h-screen">
+            <div class="linebest">
+                <a class="button" href="/" @click="currentImage = null">
+                    <div class="icon">
+                        <HomeIcon />
+                    </div>
+                    <span>HOME</span>
+                </a>
+
+                <div class="divider">
+
                 </div>
-                <span>HOME</span>
-            </a>
 
-            <div class="divider">
+                <a class="button" @click="toggleImageSource">
+                    <div class="icon">
+                        <component :is="useLocalImages ? DriveIcon : CloudIcon" />
+                    </div>
+                    <span>{{ useLocalImages ? '本地模式' : '在线模式' }}</span>
+                </a>
 
+                <a class="button" v-for="i in 9" :key="i" @click="showImage(`IMAGE${i}`)">
+                    <div class="icon">
+                        <ImageIcon />
+                    </div>
+                    <span>{{ `IMAGE${i}` }}</span>
+                </a>
             </div>
 
-            <a class="button" @click="toggleImageSource">
-                <div class="icon">
-                    <component :is="useLocalImages ? DriveIcon : CloudIcon" />
-                </div>
-                <span>{{ useLocalImages ? '本地模式' : '在线模式' }}</span>
-            </a>
-
-            <a class="button" v-for="i in 9" :key="i" @click="showImage(`IMAGE${i}`)">
-                <div class="icon">
-                    <ImageIcon />
-                </div>
-                <span>{{ `IMAGE${i}` }}</span>
-            </a>
-        </div>
-
-        <div class="image-viewer">
-            <Transition name="fade" mode="out-in">
-                <img class="preview-image" v-if="currentImage" :src="currentImage" :key="currentImage + Date.now()"
-                    alt="Selected" />
-                <p v-else class="placeholder-text">请选择左边的图片~</p>
-            </Transition>
+            <div class="image-viewer">
+                <Transition name="fade" mode="out-in">
+                    <img class="preview-image" v-if="currentImage" :src="currentImage" :key="currentImage + Date.now()"
+                        alt="Selected" />
+                    <p v-else class="placeholder-text">请选择左边的图片~</p>
+                </Transition>
+            </div>
         </div>
     </div>
 
 </template>
 
+<style lang="scss" scoped>
+.page-container {
 
+    // 移入原全局样式
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Font Awesome 5 Brands';
+    }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Font Awesome 5 Brands';
-}
-
-html,
-body {
     display: grid;
     height: 100vh;
     width: 100vw;
     place-items: center;
     background: linear-gradient(315deg, #dba6a6 0%, #e5f1b6 90%);
 }
-</style>
 
-<style scoped>
+// 原有的 scoped 样式
 .linebest {
     position: fixed;
     left: 0;
@@ -198,7 +198,6 @@ body {
     transform: scale(1);
 }
 </style>
-
 
 <script setup>
 import HomeIcon from '@/assets/icons/home-line.svg'
