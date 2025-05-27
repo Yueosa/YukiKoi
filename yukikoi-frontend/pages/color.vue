@@ -60,22 +60,19 @@ const colors = [
     }
 }
 
-/* 主页面容器 */
+/* 页面主容器 */
 .color-page {
     height: 100dvh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(315deg, #f6f6f6 0%, #d1cde3 80%);
     padding: 1rem;
-    padding-top: 4.5rem;
     box-sizing: border-box;
-
-    /* 使用 grid 布局实现完全居中 */
-    display: grid;
-    place-items: center;
+    overflow: hidden; // 避免滚动
 }
 
-/* 标题样式 */
+/* 标题样式（可选加玻璃背景） */
 .title {
     position: fixed;
     top: 1.5rem;
@@ -85,60 +82,52 @@ const colors = [
     color: #444;
     z-index: 1000;
     margin: 0;
-    padding: 0;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
 }
 
 /* 色卡网格容器 */
 .color-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 80vw;
-    min-height: calc(100vh - 8rem);
-    /* 减去头部和底部空间 */
-    padding: 2rem;
+    display: grid;
+    place-items: center;
     gap: 2rem;
 
-    /* 内容垂直居中 */
-    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+
+    max-width: 800px;
+    max-height: 600px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
 
     @media (max-width: 768px) {
-        gap: 1rem;
-        padding: 1rem;
-        min-height: calc(100vh - 6rem);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        max-width: 100vw;
+        max-height: 500px;
+        gap: 1.5rem;
     }
 }
 
-/* 色卡样式 */
 .color-box {
-    flex: 0 1 calc(33.333% - 1rem);
-    max-width: 100px;
-    min-width: 140px;
+    width: 100%;
+    max-width: 140px;
     height: 120px;
-    padding: 1rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-
-    @media (min-width: 1024px) {
-        flex: 0 1 calc(25% - 1rem); // 4列
-        max-width: calc(25% - 1rem);
-    }
+    background-color: #fff;
 
     @media (max-width: 768px) {
-        flex: 0 1 calc(50% - 0.5rem); // 小屏两列
-        max-width: calc(50% - 0.5rem);
-        height: 100px;
-    }
-
-    &:hover {
-        @media (min-width: 769px) {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
+        max-width: 110px;
+        max-height: 100px;
     }
 
     .info {
@@ -153,26 +142,22 @@ const colors = [
         justify-content: space-between;
         font-family: monospace;
 
+        @media (max-width: 768px) {
+            font-size: 10px;
+        }
+
         .name {
             font-weight: bold;
         }
     }
 
-    /* 颜色名称和十六进制值 */
     .name,
     .hex {
         margin: 0;
         line-height: 1.2;
     }
 
-    /* 颜色名称 */
-    .name {
-        font-weight: bold;
-    }
-
-    /* 十六进制值 */
     .hex {
-        font-family: monospace;
         opacity: 0.9;
     }
 }
