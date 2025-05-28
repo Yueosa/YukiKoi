@@ -9,11 +9,5 @@ export default defineNuxtConfig({
 
     vite: {
         plugins: [svgLoader()],
-    },
-
-    nitro: {
-        prerender: {
-            ignore: ["/streamlit", "/Everwhispers"],
-        },
-    },
+    }
 });
