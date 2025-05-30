@@ -227,7 +227,7 @@ const useLocalImages = ref(false)
 // 设置图片路径（修复了变量拼接）
 const showImage = (imgName) => {
     if (useLocalImages.value) {
-        currentImage.value = `/test-image/${imgName}.webp`
+        currentImage.value = `/image/webp/${imgName}.webp`
     } else {
         currentImage.value = imageUrls[imgName] || null
     }
