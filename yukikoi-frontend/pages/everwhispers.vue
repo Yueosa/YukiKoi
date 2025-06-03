@@ -121,7 +121,8 @@ const error = ref('')
 onMounted(async () => {
     try {
         // fetch 后端接口
-        const res = await fetch('http://127.0.0.1:8000/api/notes/md')
+        const res = await fetch('/api/notes/md')
+	// vps 使用 nginx 做了反代处理，所以直接请求，本地测试需要添加http://127.0.0.1:8000/...**
         const json = await res.json()
         console.log('后端返回：', json)
 
