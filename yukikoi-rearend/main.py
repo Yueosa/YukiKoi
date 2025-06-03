@@ -8,7 +8,8 @@ app = FastAPI()
 # 用于开发阶段，允许跨域
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ['*'],
+    allow_origins = ['http://127.0.0.1:3000', 'http://localhost:3000'],
+    allow_credentials = True,
     allow_methods = ['*'],
     allow_headers = ['*'],
 )
@@ -31,13 +32,3 @@ async def get_notesmd(url: str = Query('https://raw.githubusercontent.com/Yueosa
             return {"content": r.text}
     except Exception as e:
         return {"error": str(e)}
-
-@app.get('/')
-def main() -> str:
-    """
-    默认主页
-
-    返回：
-    - str: 网站名
-    """
-    return "YUkiKoi"
