@@ -1,16 +1,12 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 import httpx
 from typing import Any, Dict
 
 router = APIRouter()
 
 @router.get("/notes/md")
-async def get_notesmd(
-    url: str = Query(
-        "https://raw.githubusercontent.com/Yueosa/SakuraNotes/refs/heads/main/README.md",
-        description="raw地址"
-    )
-) -> Dict[str, Any]:
+async def get_notesmd() -> Dict[str, Any]:
+    url = "https://raw.githubusercontent.com/Yueosa/SakuraNotes/refs/heads/main/README.md"
     try:
         async with httpx.AsyncClient() as client:
             r = await client.get(url, timeout=10)
@@ -18,4 +14,3 @@ async def get_notesmd(
             return {"content": r.text}
     except Exception as e:
         return {"error": str(e)}
-
