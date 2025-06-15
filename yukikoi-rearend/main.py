@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api import notes
+from api import notes, messages
 
 app = FastAPI()
 app.include_router(notes.router, prefix='/api')
+app.include_router(messages.router, prefix='/api')
 
 app.add_middleware(
     CORSMiddleware,
