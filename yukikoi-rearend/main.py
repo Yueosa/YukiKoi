@@ -5,6 +5,10 @@ from api import notes, messages
 app = FastAPI()
 app.include_router(notes.router, prefix='/api')
 app.include_router(messages.router, prefix='/api')
+from fastapi.staticfiles import StaticFiles
+
+# 挂载静态文件目录
+app.mount("/storage", StaticFiles(directory="storage"), name="storage")
 
 app.add_middleware(
     CORSMiddleware,
