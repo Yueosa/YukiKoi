@@ -3,6 +3,7 @@
         <!-- 小组件部分 -->
         <div class="login">
             <p>小组件部分，还没实现捏~</p>
+            <a href="/">Go Index</a>
         </div>
 
         <!-- 页面主体 -->
@@ -10,7 +11,7 @@
             <!-- 我自己的部分 -->
             <div class="me">
                 <div class="myinput">
-                    <p>占位</p>
+                    <p>GitHub日记 - 暂时使用markdown-it作为样式</p>
                 </div>
                 <div class="mymessages">
                     <MarkdownViewer />
@@ -19,7 +20,7 @@
             <!-- 大家留下的部分 -->
             <div class="onther">
                 <div class="oninput">
-                    <p>占位</p>
+                    <p>Everwhispers - 暂时使用简单scss样式</p>
                 </div>
                 <div class="onmessages">
                     <div v-if="loadingMessages">留言加载中...</div>
@@ -78,27 +79,37 @@
             box-shadow: 0 2px 12px #0001;
 
             .myinput,
+            .oninput,
+            .mymessages,
+            .onmessages {
+                display: flex;
+                flex-direction: column;
+                padding: 24px;
+                align-items: flex-start;
+                justify-content: left;
+                border-radius: 16px;
+                background: rgba(0, 0, 0, 0.2);
+            }
+
+            .myinput,
             .oninput {
                 display: grid;
-                background: rgba(0, 0, 0, 0.2);
                 align-items: center;
                 justify-content: center;
-                border-radius: 16px;
             }
 
             .mymessages,
             .onmessages {
-                display: grid;
-                padding: 24px;
-                align-items: flex-start;
-                justify-content: left;
                 flex: 1 1 0;
                 min-height: 0;
                 overflow-y: auto;
+                gap: 24px;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
-                border-radius: 16px;
-                background: rgba(0, 0, 0, 0.2);
+
+                &>* {
+                    margin-bottom: 0 !important;
+                }
 
                 &::-webkit-scrollbar {
                     display: none;
