@@ -11,6 +11,7 @@ import { useMarkdown } from '@/composables/useMarkdown';
 
 // 默认使用 notes/md 接口，你也可以传入 props 动态修改
 const { loading, error, rendered } = useMarkdown('/api/notes/md')
+// const { loading, error, rendered } = useMarkdown('http://127.0.0.1:8000/api/notes/md')
 </script>
 
 <style scoped lang="scss">
