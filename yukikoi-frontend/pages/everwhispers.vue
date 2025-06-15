@@ -13,8 +13,7 @@
                     <p>占位</p>
                 </div>
                 <div class="mymessages">
-                    <div v-if="loading" class="md-loading">加载中...</div>
-                    <div v-else v-html="renderedHtml" class="md"></div>
+                    <MarkdownViewer />
                 </div>
             </div>
             <!-- 大家留下的部分 -->
@@ -23,11 +22,12 @@
                     <p>占位</p>
                 </div>
                 <div class="onmessages">
-                    <p>cloumns</p>
+                    <div v-if="loadingMessages">留言加载中...</div>
+                    <MessageCard v-for="msg in messages" :key="msg.id" :msg="msg" :admin="true" :showDelete="true"
+                        @delete="handleDelete" />
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -109,37 +109,28 @@
 }
 </style>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import MarkdownIt from 'markdown-it'
+import MarkdownViewer from '@/components/everwhispers/MarkdownViewer.vue'
+import MessageCard from '@/components/everwhispers/MessagesCard.vue'
+import { getMessages, deleteMessage } from '@/composables/useApi'
 
-const loading = ref(true)
-const mdText = ref('')
-const renderedHtml = ref('')
-const error = ref('')
+const messages = ref<any[]>([])
+const loadingMessages = ref(true)
 
-onMounted(async () => {
-    try {
-        // fetch 后端接口
-        const res = await fetch('/api/notes/md')
-	// vps 使用 nginx 做了反代处理，所以直接请求，本地测试需要添加http://127.0.0.1:8000/...**
-        const json = await res.json()
-        console.log('后端返回：', json)
-
-        if (typeof json.content === 'string') {
-            mdText.value = json.content
-            const md = new MarkdownIt()
-            renderedHtml.value = md.render(mdText.value)
-            console.log(renderedHtml.value)
-        } else if (json.error) {
-            error.value = '后端错误' + json.error
-        } else {
-            error.value = '未知错误：后端不存在 content 和 error'
-        }
-        loading.value = false
-    } catch (err) {
-        error.value = '获取失败：' + err
-        loading.value = false
+const fetchMessages = async () => {
+    loadingMessages.value = true
+    const res = await getMessages()
+    if (Array.isArray(res)) {
+        messages.value = res.reverse() // 倒序展示
     }
-})
+    loadingMessages.value = false
+}
+
+const handleDelete = async (id: string) => {
+    await deleteMessage(id)
+    fetchMessages()
+}
+
+onMounted(fetchMessages)
 </script>
