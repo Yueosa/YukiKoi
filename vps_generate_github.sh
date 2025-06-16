@@ -20,7 +20,7 @@ sudo cp -r .output/public/* /var/www/yukikoi/
 # Step 4: 重启后端服务
 echo "⚛️ 构建 Python 依赖..."
 cd ~/YukiKoi/yukikoi-yukiheart || exit 1
-srouce YukiKoi/bin/activate
+source YukiKoi/bin/activate
 pip install -r requirements.txt
 echo "🔄 重启 FastAPI 后端服务..."
 sudo systemctl restart yukikoi-backend
