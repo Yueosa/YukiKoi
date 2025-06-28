@@ -4,16 +4,16 @@
             <MenuIcon />
         </div>
         <div class="button-wrapper" :class="{ 'open': isOpen }">
-            <a href="https://slit.yeastar.xin" class="button" target="_blank" rel="noopener noreferrer">
-                <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/translate-ai-2.png?sign=hka6clVJ8DZ8XPjgM8M3R0s0G9BgCZRywijde-zUFW4=:0"
-                    alt="">
-            </a>
             <a href="/everwhispers" class="button" target="_blank" rel="noopener noreferrer">
                 <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/mail-ai-line.png?sign=gyL9fsufmAyzyhM188NlPEhZQ5Fqe0OK36URwK6Yc2c=:0"
                     alt="">
             </a>
             <a href="/color" class="button">
                 <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/dropper-line.png?sign=10Jqi5ryiaocDmUEkEegJT6-Skh_6hSC4bEbvQpVLdg=:0"
+                    alt="">
+            </a>
+            <a href="https://yeastar-blog.blogspot.com/" class="button">
+                <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/blogger-line.png?sign=f4YPybXIX75nkbgRCZYNlAP9SX8840x-ajBZFPH_8qk=:0"
                     alt="">
             </a>
         </div>
