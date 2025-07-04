@@ -1,5 +1,5 @@
 # YukiKoi
-
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Yueosa/YukiKoi)
 #### ユメアカリ
 
 ###### 欢迎来到我的世界，这里没有神，只有我构建的代码、记忆和光
