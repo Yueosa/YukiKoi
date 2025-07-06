@@ -26,7 +26,6 @@ echo "🔄 重启 FastAPI 后端服务..."
 sudo systemctl restart yukikoi-backend
 echo "🔄 重啟 三級域名服务"
 sudo systemctl restart everwhispers
-sudo systemctl restart streamlit
 
 # Step 5: 重载 nginx（如果配置更新）
 echo "🔁 重载 Nginx..."

@@ -12,7 +12,7 @@
                 <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/dropper-line.png?sign=10Jqi5ryiaocDmUEkEegJT6-Skh_6hSC4bEbvQpVLdg=:0"
                     alt="">
             </a>
-            <a href="https://yeastar-blog.blogspot.com/" class="button">
+            <a href="https://blog.yeastar.xin/" class="button">
                 <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/blogger-line.png?sign=f4YPybXIX75nkbgRCZYNlAP9SX8840x-ajBZFPH_8qk=:0"
                     alt="">
             </a>
