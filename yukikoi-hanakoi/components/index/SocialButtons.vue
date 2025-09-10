@@ -31,12 +31,14 @@
             </div>
             <span>Gmail</span>
         </a>
+        <!-- 弃用页面/home
         <a class="button" href="/home">
             <div class="icon">
                 <HomeIcon />
             </div>
             <span>Home</span>
         </a>
+        -->
     </div>
 </template>
 
