@@ -9,7 +9,7 @@
                 <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/mail-ai-line.png?sign=cGwFsIJvufibU-tsT8GkFaPWKMY0cizPorsFdgPk_ck=:0"
                     alt="">
             </a>
-            <!-- 印象色页面图标 -->>
+            <!-- 印象色页面图标 -->
             <a href="/color" class="button">
                 <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/dropper-line.png?sign=fCS7FUVXOfPHU54jd-iXAEN-W5Ag7D5-N2gNrkC0B7Y=:0"
                     alt="">
