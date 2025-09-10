@@ -4,16 +4,19 @@
             <MenuIcon />
         </div>
         <div class="button-wrapper" :class="{ 'open': isOpen }">
+            <!-- 留言板页面图标 -->
             <a href="/everwhispers" class="button" target="_blank" rel="noopener noreferrer">
-                <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/mail-ai-line.png?sign=gyL9fsufmAyzyhM188NlPEhZQ5Fqe0OK36URwK6Yc2c=:0"
+                <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/mail-ai-line.png?sign=cGwFsIJvufibU-tsT8GkFaPWKMY0cizPorsFdgPk_ck=:0"
                     alt="">
             </a>
+            <!-- 印象色页面图标 -->>
             <a href="/color" class="button">
-                <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/dropper-line.png?sign=10Jqi5ryiaocDmUEkEegJT6-Skh_6hSC4bEbvQpVLdg=:0"
+                <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/dropper-line.png?sign=fCS7FUVXOfPHU54jd-iXAEN-W5Ag7D5-N2gNrkC0B7Y=:0"
                     alt="">
             </a>
+            <!-- 博客页面图标 -->
             <a href="https://blog.yeastar.xin/" class="button">
-                <img src="https://ca.alist.castimage.net:5244/d/local/otherUser/ycx/YukiKoi/YukiKoi_home_icons/blogger-line.png?sign=f4YPybXIX75nkbgRCZYNlAP9SX8840x-ajBZFPH_8qk=:0"
+                <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/blogger-line.png?sign=dKeKeWnAx7DtBDfcy41BiJ8KE_dzK4xEF85J5pPHRBM=:0"
                     alt="">
             </a>
         </div>
