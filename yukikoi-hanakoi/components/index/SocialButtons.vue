@@ -50,22 +50,29 @@ $github-color: #333;
 $gmail-color: #D93025;
 
 .button-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex; // 默认桌面端：横向排列
+    align-items: center; // 垂直居中对齐
+    justify-content: center; // 水平居中对齐
+    flex-wrap: wrap; // 自动换行（避免超出）
     padding: 10px;
 
-    /* 移动端适配 */
+    /* 📱 移动端适配 */
     @media screen and (max-width: 768px) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 30px;
-        width: 100%;
-        padding: 20px;
+        display: flex; // 改用网格布局
+        gap: 30px; // 按钮之间的间距
+        width: 100%; // 占满屏幕宽度
+        padding: 20px; // 内边距，防止贴边
+
+        .button {
+            width: 60px !important; // 固定为圆形
+
+            span {
+                display: none; // 隐藏文字
+            }
+        }
     }
 
+    /* 去掉 a 标签默认下划线和颜色 */
     a.button {
         text-decoration: none;
         color: inherit;
@@ -74,25 +81,26 @@ $gmail-color: #D93025;
     .button {
         display: inline-block;
         height: 60px;
-        width: 60px;
+        width: 60px; // 初始为圆形按钮
         margin: 0 12px;
-        overflow: hidden;
+        overflow: hidden; // 隐藏溢出的文字（展开时显示）
         background: #fff;
-        border-radius: 50px;
+        border-radius: 50px; // 圆角，保持圆形/椭圆形
         cursor: pointer;
-        transition: box-shadow 1s ease, width 0.3s ease-out;
+        transition: box-shadow 1s ease, width 0.3s ease-out; // 阴影和宽度过渡效果
 
+        /* 🖱️ 悬停效果 */
         &:hover {
-            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-            width: 200px;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1); // 悬停阴影
+            width: 200px; // 宽度展开，显示文字
 
             .icon svg {
-                fill: #fff;
+                fill: #fff; // 图标变白
             }
 
             span {
-                opacity: 1;
-                transform: translateX(+10px);
+                opacity: 1; // 显示文字
+                transform: translateX(+10px); // 文字滑入
             }
         }
 
@@ -101,8 +109,8 @@ $gmail-color: #D93025;
             align-items: center;
             justify-content: center;
             height: 60px;
-            width: 60px;
-            border-radius: 50%;
+            width: 60px; // 固定大小，保证圆形区域
+            border-radius: 50%; // 保持圆形
             transition: all 0.3s ease-out;
             vertical-align: middle;
             transform: translateX(-1px);
@@ -111,7 +119,7 @@ $gmail-color: #D93025;
                 width: 26px;
                 height: 26px;
                 transition: all 0.3s ease-out;
-                fill: #333;
+                fill: #333; // 默认黑灰色
                 transform: translateX(1px);
             }
         }
@@ -119,16 +127,17 @@ $gmail-color: #D93025;
         span {
             font-size: 20px;
             font-weight: 600;
-            line-height: 60px;
+            line-height: 60px; // 与按钮高度一致，保证垂直居中
             margin-left: 10px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.5s ease;
+            opacity: 0; // 默认隐藏文字
+            transform: translateX(-30px); // 初始位置在左边
+            transition: all 0.5s ease; // 动画过渡
             display: inline-block;
-            white-space: nowrap;
+            white-space: nowrap; // 禁止换行
             vertical-align: middle;
         }
 
+        /* 不同按钮悬停时的配色 */
         &:nth-child(1):hover .icon {
             background: $qq-color;
         }
