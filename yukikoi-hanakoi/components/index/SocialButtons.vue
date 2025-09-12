@@ -31,14 +31,6 @@
             </div>
             <span>Gmail</span>
         </a>
-        <!-- 弃用页面/home
-        <a class="button" href="/home">
-            <div class="icon">
-                <HomeIcon />
-            </div>
-            <span>Home</span>
-        </a>
-        -->
     </div>
 </template>
 
@@ -48,7 +40,6 @@ import TwitterIcon from '@/assets/icons/twitter-line.svg'
 import BiliBiliIcon from '@/assets/icons/bilibili-line.svg'
 import GithubIcon from '@/assets/icons/github-line.svg'
 import MailIcon from '@/assets/icons/mail-line.svg'
-import HomeIcon from '@/assets/icons/home-line.svg'
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +48,6 @@ $twitter-color: #000;
 $bilibili-color: #FB7299;
 $github-color: #333;
 $gmail-color: #D93025;
-$home-color: #5a9bc6;
 
 .button-group {
     display: flex;
@@ -159,10 +149,6 @@ $home-color: #5a9bc6;
             background: $gmail-color;
         }
 
-        &:nth-child(6):hover .icon {
-            background: $home-color;
-        }
-
         &:nth-child(1):hover span {
             color: $qq-color;
         }
@@ -181,10 +167,6 @@ $home-color: #5a9bc6;
 
         &:nth-child(5):hover span {
             color: $gmail-color;
-        }
-
-        &:nth-child(6):hover span {
-            color: $home-color;
         }
     }
 }
