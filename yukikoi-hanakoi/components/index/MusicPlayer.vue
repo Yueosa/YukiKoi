@@ -247,8 +247,8 @@ onMounted(() => {
 .music-control {
     /* 定位相关 */
     position: fixed; // 固定定位
-    top: 3.2vh; // 顶部距离
-    right: 10vh; // 右侧距离
+    top: 1vh; // 顶部距离
+    right: 32vh; // 右侧距离
 
     /* 尺寸和形状 */
     width: 40px; // 按钮宽度
@@ -265,6 +265,10 @@ onMounted(() => {
     font-size: 30px; // 图标大小
     color: #5a9bc6; // 图标颜色
     transition: all 0.3s ease; // 过渡动画
+
+    .Text {
+        font-size: 12px
+    }
 
     /* 悬停效果 */
     &:hover {
@@ -300,8 +304,8 @@ onMounted(() => {
     @media screen and (max-width: 768px) {
         width: 30px; // 增大点击区域
         height: 50px; // 增大点击区域
-        top: 2.5%; // 调整位置
-        right: 20%; // 调整位置
+        top: 1.25%; // 调整位置
+        right: 16%; // 调整位置
         -webkit-tap-highlight-color: transparent; // 禁用点击高亮
 
         /* 扩大点击区域的透明覆盖层 */
