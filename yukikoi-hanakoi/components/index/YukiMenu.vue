@@ -18,6 +18,12 @@
                 alt="blog_icon">
             <p class="Text">BLog</p>
         </a>
+        <!-- 视奸页面图标 -->
+        <a href="https://alive.yeastar.xin/" class="button" target="_blank" rel="noopener noreferrer">
+            <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/eye-line.png?sign=GMUgBjxLXwxI7p53rBj6kErathvRMvtf04iaFUFu4xI=:0"
+                alt="alive_icon">
+            <p class="Text">ALive</p>
+        </a>
     </div>
 </template>
 
@@ -122,6 +128,10 @@ $color-main: #6c90c4; // 主色调（文字、下划线、hover 效果等用）
 
         .button:nth-child(3) {
             transition-delay: 0.4s;
+        }
+
+        .button:nth-child(4) {
+            transition-delay: 0.6s;
         }
     }
 

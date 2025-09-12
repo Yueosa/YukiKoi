@@ -248,7 +248,7 @@ onMounted(() => {
     /* 定位相关 */
     position: fixed; // 固定定位
     top: 1vh; // 顶部距离
-    right: 32vh; // 右侧距离
+    right: 42vh; // 右侧距离
 
     /* 尺寸和形状 */
     width: 40px; // 按钮宽度
