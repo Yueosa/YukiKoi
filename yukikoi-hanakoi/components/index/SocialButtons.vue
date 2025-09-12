@@ -1,35 +1,11 @@
 <template>
     <div class="button-group">
-        <a class="button" target="_blank"
-            href="https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ">
+        <a v-for="(btn, index) in buttons" :key="index" class="button" :href="btn.href" :target="btn.target"
+            @click.prevent="handleClick($event, btn.href, btn.target)">
             <div class="icon">
-                <QQIcon />
+                <component :is="btn.icon" />
             </div>
-            <span>QQGroup</span>
-        </a>
-        <a class="button" href="https://x.com/Yosa04942475621">
-            <div class="icon">
-                <TwitterIcon />
-            </div>
-            <span>Twitter</span>
-        </a>
-        <a class="button" href="https://space.bilibili.com/433677987">
-            <div class="icon">
-                <BiliBiliIcon />
-            </div>
-            <span>BiliBili</span>
-        </a>
-        <a class="button" href="https://github.com/Yueosa">
-            <div class="icon">
-                <GithubIcon />
-            </div>
-            <span>GitHub</span>
-        </a>
-        <a class="button" href="mailto:yichengxin7@gmail.com">
-            <div class="icon">
-                <MailIcon />
-            </div>
-            <span>Gmail</span>
+            <span>{{ btn.label }}</span>
         </a>
     </div>
 </template>
@@ -40,6 +16,14 @@ import TwitterIcon from '@/assets/icons/twitter-line.svg'
 import BiliBiliIcon from '@/assets/icons/bilibili-line.svg'
 import GithubIcon from '@/assets/icons/github-line.svg'
 import MailIcon from '@/assets/icons/mail-line.svg'
+
+const buttons = [
+    { icon: QQIcon, label: 'QQGroup', href: 'https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ', target: '_blank' },
+    { icon: TwitterIcon, label: 'Twitter', href: 'https://x.com/Yosa04942475621', target: '_blank' },
+    { icon: BiliBiliIcon, label: 'BiliBili', href: 'https://space.bilibili.com/433677987', target: '_blank' },
+    { icon: GithubIcon, label: 'GitHub', href: 'https://github.com/Yueosa', target: '_blank' },
+    { icon: MailIcon, label: 'Gmail', href: 'mailto:yichengxin7@gmail.com', target: '_self' },
+]
 </script>
 
 <style lang="scss" scoped>
