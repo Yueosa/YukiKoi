@@ -13,7 +13,8 @@
         <!-- 所有UI组件 -->
         <div class="main">
             <YukiLogo />
-            <RightTop />
+            <!--<RightTop /> 弃用的menu组件 -->
+            <NewMenu />
             <MusicPlayer />
             <TopProfile />
             <SocialButtons />
@@ -68,5 +69,5 @@ import TopProfile from '~/components/index/TopProfile.vue';
 import SocialButtons from '~/components/index/SocialButtons.vue';
 import RightTop from '~/components/index/menu.vue'
 import MusicPlayer from '~/components/index/MusicPlayer.vue'
-
+import NewMenu from '~/components/index/YukiMenu.vue'
 </script>
