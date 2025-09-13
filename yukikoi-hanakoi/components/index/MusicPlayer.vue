@@ -247,12 +247,12 @@ onMounted(() => {
 .music-control {
     /* 定位相关 */
     position: fixed; // 固定定位
-    top: 1vh; // 顶部距离
-    right: 42vh; // 右侧距离
+    bottom: 20px; // 顶部距离
+    left: 20px; // 右侧距离
 
     /* 尺寸和形状 */
-    width: 40px; // 按钮宽度
-    height: 40px; // 按钮高度
+    width: 50px; // 按钮宽度
+    height: 50px; // 按钮高度
     border-radius: 50%; // 圆形形状
 
     /* 布局相关 */
@@ -272,7 +272,7 @@ onMounted(() => {
 
     /* 悬停效果 */
     &:hover {
-        transform: scale(1.1); // 放大效果
+        transform: scale(1.2); // 放大效果
     }
 
     /* 图标样式 */
@@ -282,7 +282,7 @@ onMounted(() => {
         /* 激活状态 */
         &.active {
             color: #5a9bc6; // 激活颜色
-            transform: scale(1.1); // 放大效果
+            transform: scale(1.2); // 放大效果
         }
     }
 
@@ -302,11 +302,10 @@ onMounted(() => {
 
     /* 移动端适配 */
     @media screen and (max-width: 768px) {
-        width: 30px; // 增大点击区域
-        height: 50px; // 增大点击区域
-        top: 1.25%; // 调整位置
-        right: 16%; // 调整位置
-        -webkit-tap-highlight-color: transparent; // 禁用点击高亮
+        width: 40px; // 比例调整
+        height: 40px;
+        // 保持 bottom:20px; left:20px; 不要覆盖
+        -webkit-tap-highlight-color: transparent;
 
         /* 扩大点击区域的透明覆盖层 */
         &::before {
