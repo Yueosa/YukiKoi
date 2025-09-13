@@ -197,10 +197,10 @@ onMounted(() => {
 .lyrics-container {
     /* 定位相关 */
     position: fixed; // 固定定位，不随页面滚动
-    left: 16px; // 左侧边距，与Logo对齐
-    top: 80px; // 顶部边距，位于Logo下方
-    max-width: 95vw; // 最大宽度，防止超出屏幕
-    height: 60vh; // 高度占视口60%
+    left: 10px; // 左侧边距，与Logo对齐
+    top: 100px; // 顶部边距，位于Logo下方
+    max-width: 80vw; // 最大宽度，防止超出屏幕
+    height: 15vh; // 高度占视口60%
 
     /* 滚动相关 */
     overflow-y: auto; // 垂直方向可滚动
@@ -210,8 +210,8 @@ onMounted(() => {
     @media screen and (max-width: 768px) {
         position: fixed; // 保持固定定位
         left: 0; // 取消左偏移，占满宽度
-        top: 5vh; // 调整顶部位置
-        width: 100%; // 占满容器宽度
+        top: 8vh; // 调整顶部位置
+        width: 80%; // 占满容器宽度
         height: auto; // 自适应高度
         max-height: 40vh; // 限制最大高度
         z-index: 1; // 确保不被其他元素遮挡
