@@ -1,7 +1,6 @@
 <template>
     <div class="button-group">
-        <a v-for="(btn, index) in buttons" :key="index" class="button" :href="btn.href" :target="btn.target"
-            @click.prevent="handleClick($event, btn.href, btn.target)">
+        <a v-for="(btn, index) in buttons" :key="index" class="button" :href="btn.href" :target="btn.target">
             <div class="icon">
                 <component :is="btn.icon" />
             </div>
