@@ -1,6 +1,6 @@
 <template>
     <div class="top">
-        <img class="avatar" src="/avatar/avatar.jpg" alt="avatar">
+        <img class="avatar" src="/avatar/avatar_Sakurya.jpg" alt="avatar">
         <div class="info">
             <p>欢迎来到我的世界, 这里没有神, 只有我构筑的代码、记忆和光</p>
             <p>——Sakura</p>
