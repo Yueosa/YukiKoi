@@ -134,15 +134,27 @@ $color-main: #6c90c4; // 主色调（文字、下划线、hover 效果等用）
         }
 
         .button:nth-child(2) {
-            transition-delay: 0.2s;
+            transition-delay: 0.1s;
         }
 
         .button:nth-child(3) {
-            transition-delay: 0.4s;
+            transition-delay: 0.2s;
         }
 
         .button:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .button:nth-child(5) {
             transition-delay: 0.6s;
+        }
+
+        .button:nth-child(6) {
+            transition-delay: 0.8s;
+        }
+
+        .button:nth-child(7) {
+            transition-delay: 1.0s;
         }
     }
 
