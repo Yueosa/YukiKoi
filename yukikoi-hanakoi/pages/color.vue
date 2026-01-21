@@ -6,9 +6,9 @@
     </Head>
 
     <div class="color-page">
-        <NuxtLink to="/" class="back-button" title="返回首页">
+        <a href="/" class="back-button" title="返回首页">
             <HomeIcon />
-        </NuxtLink>
+        </a>
         <h1 class="title">YukiKoi 印象色彩展示</h1>
         <div class="color-grid">
             <div v-for="(color, index) in colors" :key="index" class="color-box"
