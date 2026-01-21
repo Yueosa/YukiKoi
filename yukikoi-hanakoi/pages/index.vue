@@ -14,7 +14,7 @@
         <div class="main">
             <YukiLogo />
             <!--<RightTop /> 弃用的menu组件 -->
-            <NewMenu />
+            <NewMenu :key="$route.fullPath" />
             <MusicPlayer />
             <TopProfile />
             <SocialButtons />
