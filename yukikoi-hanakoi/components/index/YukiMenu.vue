@@ -2,27 +2,38 @@
     <div class="icon-group" :class="{ animate: playIntro }">
         <!-- 留言板页面图标 -->
         <a href="https://ever.yeastar.xin" class="button" target="_blank" rel="noopener noreferrer">
-            <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/mail-ai-line.png?sign=cGwFsIJvufibU-tsT8GkFaPWKMY0cizPorsFdgPk_ck=:0"
-                alt="everwhispers_icon">
-            <p>Ever</p>
+            <img src="https://unpkg.com/lucide-static/icons/message-square.svg">
+            <p class="Text">Ever</p>
         </a>
         <!-- 印象色页面图标 -->
         <a href="/color" class="button" target="_self">
-            <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/dropper-line.png?sign=fCS7FUVXOfPHU54jd-iXAEN-W5Ag7D5-N2gNrkC0B7Y=:0"
-                alt="color_icon">
-            <p>Color</p>
+            <img src="https://unpkg.com/lucide-static/icons/palette.svg">
+            <p class="Text">Color</p>
         </a>
         <!-- 博客页面图标 -->
         <a href="https://blog.yeastar.xin/" class="button" target="_blank" rel="noopener noreferrer">
-            <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/blogger-line.png?sign=dKeKeWnAx7DtBDfcy41BiJ8KE_dzK4xEF85J5pPHRBM=:0"
-                alt="blog_icon">
+            <img src="https://unpkg.com/lucide-static/icons/book-open.svg">
             <p class="Text">BLog</p>
         </a>
         <!-- 视奸页面图标 -->
         <a href="https://alive.yeastar.xin/" class="button" target="_blank" rel="noopener noreferrer">
-            <img src="https://ca.alist.castimage.net:5244/d/synology/otherUser/ycx/YukiKoi/YukiKoi_home_icons/eye-line.png?sign=GMUgBjxLXwxI7p53rBj6kErathvRMvtf04iaFUFu4xI=:0"
-                alt="alive_icon">
+            <img src="https://unpkg.com/lucide-static/icons/eye.svg">
             <p class="Text">ALive</p>
+        </a>
+        <!-- 网盘页面图标 -->
+        <a href="https://list.yeastar.xin/" class="button" target="_blank" rel="noopener noreferrer">
+            <img src="https://unpkg.com/lucide-static/icons/folder.svg">
+            <p class="Text">List</p>
+        </a>
+        <!-- 遗书页面图标 -->
+        <a href="https://iamhere.yeastar.xin/" class="button" target="_blank" rel="noopener noreferrer">
+            <img src="https://unpkg.com/lucide-static/icons/file-text.svg">
+            <p class="Text">Self</p>
+        </a>
+        <!-- 撸了吗页面图标 -->
+        <a href="https://lol.yeastar.xin/" class="button" target="_blank" rel="noopener noreferrer">
+            <img src="https://unpkg.com/lucide-static/icons/lock.svg">
+            <p class="Text">Lol</p>
         </a>
     </div>
 </template>
